@@ -3,24 +3,33 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace Api.Data;
 
-public class AppDbContext(IConfiguration configuration) : IdentityDbContext<AppUser>
+public class AppDbContext : IdentityDbContext<AppUser>
 {
+    private readonly IConfiguration _configuration;
+
+    public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration configuration)
+        : base(options)
+    {
+        _configuration = configuration;
+    }
+
     public DbSet<Stock> Stocks { get; init; }
     public DbSet<Comment> Comments { get; init; }
 
+
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseNpgsql(configuration.GetConnectionString("TestDbConnection"))
-            .UseSnakeCaseNamingConvention();
+        if (!options.IsConfigured)
+            options.UseNpgsql(_configuration.GetConnectionString("TestDbConnection"))
+                .UseSnakeCaseNamingConvention();
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        
+
         var roles = new List<IdentityRole>
         {
             new()

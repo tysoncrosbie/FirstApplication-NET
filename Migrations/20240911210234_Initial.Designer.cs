@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240830175610_AddSeedRoles")]
-    partial class AddSeedRoles
+    [Migration("20240911210234_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -216,13 +216,13 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b482b520-e2b7-4a9c-b769-c8370c414990",
+                            Id = "e819eb67-43d2-4ddd-97d7-b4213ff7bc71",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "a402b7c8-7bae-4fbd-ba1c-d2bc37f27a61",
+                            Id = "344aad4b-4923-4053-a5d4-c8eddce634ab",
                             Name = "User",
                             NormalizedName = "USER"
                         });
