@@ -30,13 +30,13 @@ public class AccountController : ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginUser.Username.ToLower());
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.UserName == loginUser.Username.ToLower());
 
         if (user == null) return Unauthorized("Invalid username!");
 
         var result = await _signinManager.CheckPasswordSignInAsync(user, loginUser.Password, false);
 
-        if (!result.Succeeded) return Unauthorized("Username not found and/or password incorrect");
+        if (!result.Succeeded) return Unauthorized("Username or password incorrect");
 
         return Ok(
             new CreateNewUser

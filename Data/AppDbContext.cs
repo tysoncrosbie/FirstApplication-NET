@@ -17,6 +17,7 @@ public class AppDbContext : IdentityDbContext<AppUser>
 
     public DbSet<Stock> Stocks { get; init; }
     public DbSet<Comment> Comments { get; init; }
+    public DbSet<Portfolio> Portfolios { get; init; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -29,6 +30,18 @@ public class AppDbContext : IdentityDbContext<AppUser>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        
+       builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserId, p.StockId }));
+
+            builder.Entity<Portfolio>()
+                .HasOne(u => u.AppUser)
+                .WithMany(u => u.Portfolios)
+                .HasForeignKey(p => p.AppUserId);
+
+            builder.Entity<Portfolio>()
+                .HasOne(u => u.Stock)
+                .WithMany(u => u.Portfolios)
+                .HasForeignKey(p => p.StockId);
 
         var roles = new List<IdentityRole>
         {
