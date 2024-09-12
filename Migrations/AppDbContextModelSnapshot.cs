@@ -213,13 +213,13 @@ namespace Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e819eb67-43d2-4ddd-97d7-b4213ff7bc71",
+                            Id = "e10bd38f-21af-49bd-9b64-e0723eb3cf40",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "344aad4b-4923-4053-a5d4-c8eddce634ab",
+                            Id = "9eb80f42-d13b-4d3d-abf1-5122d2810c7f",
                             Name = "User",
                             NormalizedName = "USER"
                         });
