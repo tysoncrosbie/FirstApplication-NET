@@ -9,4 +9,7 @@ public class Comment
 
     public int? StockId { get; init; }
     public Stock? Stock { get; init; }
+    
+    public string AppUserid { get; init; }
+    public AppUser AppUser { get; init; }
 }
