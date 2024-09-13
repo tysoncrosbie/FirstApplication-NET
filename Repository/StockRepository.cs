@@ -39,14 +39,14 @@ public class StockRepository(AppDbContext context) : IStockRepository
         return await context.Stocks.FirstOrDefaultAsync(s => s.Symbol == symbol);
     }
 
-    public async Task<Stock> CreateAsync(Stock stock)
+    public async Task<Stock> CreateAsync(Stock stockRequest)
     {
-        await context.Stocks.AddAsync(stock);
+        await context.Stocks.AddAsync(stockRequest);
         await context.SaveChangesAsync();
-        return stock;
+        return stockRequest;
     }
 
-    public async Task<Stock?> UpdateAsync(int id, UpdateStockRequest stockRequest)
+    public async Task<Stock?> UpdateAsync(int id, UpdateStock stockRequest)
     {
         var stock = await context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
 

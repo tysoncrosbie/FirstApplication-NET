@@ -17,21 +17,21 @@ public static class CommentMappers
         return commentDto;
     }
 
-    public static Comment ToCommentFromUpdate(this UpdateCommentRequest updateRequest)
+    public static Comment ToCommentFromUpdate(this UpdateComment commentRequest)
     {
         return new Comment
         {
-            Title = updateRequest.Title,
-            Content = updateRequest.Content
+            Title = commentRequest.Title,
+            Content = commentRequest.Content
         };
     }
 
-    public static Comment ToCommentFromDto(this CreateCommentRequest createRequest, int stockId)
+    public static Comment ToCommentFromDto(this CreateComment commentRequest, int stockId)
     {
         return new Comment
         {
-            Title = createRequest.Title,
-            Content = createRequest.Content,
+            Title = commentRequest.Title,
+            Content = commentRequest.Content,
             StockId = stockId
         };
     }

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Api.Dtos.Stock;
 
-public record CreateStockRequest(
+public record CreateStock(
     [Required]
     [MaxLength(10, ErrorMessage = "Symbol cannot be over 10 over characters")]
     string Symbol,

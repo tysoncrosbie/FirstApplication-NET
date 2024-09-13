@@ -20,7 +20,7 @@ public static class StockMappers
         return stockDto;
     }
 
-    public static Stock ToStockFromDto(this CreateStockRequest stockRequest)
+    public static Stock ToStockFromDto(this CreateStock stockRequest)
     {
         return new Stock
         {

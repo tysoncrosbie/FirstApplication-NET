@@ -32,12 +32,12 @@ public class CommentController(
     }
 
     [HttpPost("{stockId:int}")]
-    public async Task<IActionResult> Create([FromRoute] int stockId, CreateCommentRequest createRequest)
+    public async Task<IActionResult> Create([FromRoute] int stockId, CreateComment commentRequest)
     {
         if (!await stockRepo.StockExists(stockId)) return BadRequest("Stock does not exist");
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        var commentModel = createRequest.ToCommentFromDto(stockId);
+        var commentModel = commentRequest.ToCommentFromDto(stockId);
 
         await commentRepo.CreateAsync(commentModel);
 
@@ -47,11 +47,11 @@ public class CommentController(
 
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateCommentRequest updateRequest)
+    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateComment commentRequest)
     {
         if (!ModelState.IsValid) return BadRequest(ModelState);
 
-        var comment = await commentRepo.UpdateAsync(id, updateRequest.ToCommentFromUpdate());
+        var comment = await commentRepo.UpdateAsync(id, commentRequest.ToCommentFromUpdate());
 
         if (comment == null) return NotFound();
 
