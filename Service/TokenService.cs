@@ -25,7 +25,7 @@ public class TokenService : ITokenService
             new(JwtRegisteredClaimNames.Email, user.Email ?? throw new InvalidOperationException()),
             new(JwtRegisteredClaimNames.GivenName, user.UserName ?? throw new InvalidOperationException())
         };
-        
+
         var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha256Signature);
 
         var tokenDescriptor = new SecurityTokenDescriptor
@@ -36,11 +36,11 @@ public class TokenService : ITokenService
             Issuer = _config["JWT:Issuer"],
             Audience = _config["JWT:Audience"]
         };
-        
+
         var tokenHandler = new JwtSecurityTokenHandler();
-        
+
         var token = tokenHandler.CreateToken(tokenDescriptor);
-        
+
         return tokenHandler.WriteToken(token);
     }
 }

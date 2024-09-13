@@ -1,9 +1,8 @@
 using Api.Models;
 
-namespace Api.Interfaces
+namespace Api.Interfaces;
+
+public interface ITokenService
 {
-    public interface ITokenService
-    {
-         string CreateToken(AppUser user);
-    }
+    string CreateToken(AppUser user);
 }
