@@ -2,8 +2,8 @@ namespace Api.Models;
 
 public class Portfolio
 {
-    public string AppUserId { get; set; }
-    public int StockId { get; set; }
-    public AppUser AppUser { get; set; }
-    public Stock Stock { get; set; }
+    public string? AppUserId { get; init; }
+    public int StockId { get; init; }
+    public AppUser? AppUser { get; init; }
+    public Stock? Stock { get; init; }
 }

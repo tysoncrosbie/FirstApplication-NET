@@ -5,10 +5,10 @@ namespace Api.Dtos.Stock;
 public record UpdateStock(
     [Required]
     [MaxLength(10, ErrorMessage = "Symbol cannot be over 10 over characters")]
-    string Symbol,
+    string? Symbol,
     [Required]
     [MaxLength(10, ErrorMessage = "Company Name cannot be over 10 over characters")]
-    string CompanyName,
+    string? CompanyName,
     [Required]
     [Range(0.001, 100)]
     [DataType(DataType.Currency)]
@@ -19,6 +19,6 @@ public record UpdateStock(
     decimal Purchase,
     [Required]
     [MaxLength(10, ErrorMessage = "Industry cannot be over 10 characters")]
-    string Industry,
+    string? Industry,
     [Range(1, 5000000000)] long MarketCap
 );

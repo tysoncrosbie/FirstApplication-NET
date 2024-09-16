@@ -4,5 +4,5 @@ namespace Api.Models;
 
 public class AppUser : IdentityUser
 {
-    public List<Portfolio> Portfolios { get; set; } = new();
+    public List<Portfolio> Portfolios { get; } = new();
 }

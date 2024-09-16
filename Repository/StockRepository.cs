@@ -15,9 +15,9 @@ public class StockRepository(AppDbContext context) : IStockRepository
         var stocks = context.Stocks.Include(c => c.Comments).AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(query.CompanyName))
-            stocks = stocks.Where(x => x.Symbol.Contains(query.CompanyName));
+            stocks = stocks.Where(x => x.Symbol != null && x.Symbol.Contains(query.CompanyName));
 
-        if (!string.IsNullOrWhiteSpace(query.Symbol)) stocks = stocks.Where(x => x.Symbol.Contains(query.Symbol));
+        if (!string.IsNullOrWhiteSpace(query.Symbol)) stocks = stocks.Where(x => x.Symbol != null && x.Symbol.Contains(query.Symbol));
 
         if (!string.IsNullOrWhiteSpace(query.SortBy))
             if (query.SortBy.Equals("Symbol", StringComparison.OrdinalIgnoreCase))

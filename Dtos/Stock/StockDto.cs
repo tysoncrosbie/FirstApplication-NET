@@ -4,11 +4,11 @@ namespace Api.Dtos.Stock;
 
 public record StockDto(
     int Id,
-    string Symbol,
-    string CompanyName,
+    string? Symbol,
+    string? CompanyName,
     decimal LastDiv,
     decimal Purchase,
-    string Industry,
-    long MarketCap,
+    string? Industry,
+    long? MarketCap,
     List<CommentDto> Comments
 );
