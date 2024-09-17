@@ -51,7 +51,7 @@ public class PortfolioController(
 
             var userPortfolio = await portfolioRepo.GetUserPortfolio(appUser);
 
-            if (userPortfolio.Any(e => e.Symbol != null && e.Symbol.Equals(symbol, StringComparison.CurrentCultureIgnoreCase)))
+            if (userPortfolio.Any(e => e.Symbol != null && e.Symbol.Equals(symbol, StringComparison.OrdinalIgnoreCase)))
                 return BadRequest("Cannot add same stock to portfolio");
 
             var portfolioModel = new Portfolio
@@ -77,7 +77,7 @@ public class PortfolioController(
 
             var userPortfolio = await portfolioRepo.GetUserPortfolio(appUser);
 
-            var filteredStock = userPortfolio.Where(s => s.Symbol != null && s.Symbol.Equals(symbol, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            var filteredStock = userPortfolio.Where(s => s.Symbol != null && s.Symbol.Equals(symbol, StringComparison.OrdinalIgnoreCase)).ToList();
 
             if (filteredStock.Count() == 1)
                 await portfolioRepo.DeletePortfolio(appUser, symbol);

@@ -47,7 +47,7 @@ public class CommentRepository(AppDbContext context) : ICommentRepository
         var comments = context.Comments.Include(a => a.AppUser).AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(queryObject.Symbol))
-            comments = comments.Where(s => s.Stock != null && s.Stock.Symbol == queryObject.Symbol);
+            comments = comments.Where(s => s.Stock != null && s.Stock.Symbol.Equals(queryObject.Symbol, StringComparison.OrdinalIgnoreCase));
         
         if (queryObject.IsDescending) comments = comments.OrderByDescending(c => c.CreatedOn);
         return await comments.ToListAsync();

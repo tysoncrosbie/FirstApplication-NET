@@ -20,7 +20,7 @@ public class PortfolioRepository(AppDbContext context) : IPortfolioRepository
             appUser != null && x.AppUserId == appUser.Id 
                             && x.Stock != null
                             && x.Stock.Symbol != null
-                            && x.Stock.Symbol.Equals(symbol, StringComparison.CurrentCultureIgnoreCase));
+                            && x.Stock.Symbol.Equals(symbol, StringComparison.OrdinalIgnoreCase));
 
         if (portfolioModel == null) return null;
 
