@@ -1,38 +1,32 @@
-# Common IntelliJ Platform excludes
+[Bb]in/
+[Oo]bj/
+[Pp]ackages/
+_UpgradeReport_Files/
 
-# User specific
-**/.idea/**/workspace.xml
-**/.idea/**/tasks.xml
-**/.idea/shelf/*
-**/.idea/dictionaries
-**/.idea/httpRequests/
-
-# Sensitive or high-churn files
-**/.idea/**/dataSources/
-**/.idea/**/dataSources.ids
-**/.idea/**/dataSources.xml
-**/.idea/**/dataSources.local.xml
-**/.idea/**/sqlDataSources.xml
-**/.idea/**/dynamic.xml
-
-# Rider
-# Rider auto-generates .iml files, and contentModel.xml
-**/.idea/**/*.iml
-**/.idea/**/contentModel.xml
-**/.idea/**/modules.xml
+**/.idea/
+**/build
+**/coverage
+**/node_modules/
 
 *.suo
 *.user
-.vs/
-[Bb]in/
-[Oo]bj/
-_UpgradeReport_Files/
-[Pp]ackages/
+*.userosscache
+*.sln.docstates
+*.sln.DotSettings
 
-Desktop.ini
 .DS_Store
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+.pnp
+.pnp.js
 
-riderModule.iml
-/_ReSharper.Caches/
 appsettings*.json
-/Application.sln.DotSettings
+project.lock.json
+npm-debug.log*
+riderModule.iml
+yarn-debug.log*
+yarn-error.log*
+
+
