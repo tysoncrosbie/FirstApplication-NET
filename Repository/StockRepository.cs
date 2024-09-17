@@ -21,7 +21,7 @@ public class StockRepository(AppDbContext context) : IStockRepository
 
         if (!string.IsNullOrWhiteSpace(query.SortBy))
             if (query.SortBy.Equals("Symbol", StringComparison.OrdinalIgnoreCase))
-                stocks = query.IsDecsending
+                stocks = query.IsDescending
                     ? stocks.OrderByDescending(s => s.Symbol)
                     : stocks.OrderBy(s => s.Symbol);
         var skipNumber = (query.PageNumber - 1) * query.PageSize;
