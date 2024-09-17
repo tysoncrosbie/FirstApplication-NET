@@ -4,9 +4,6 @@
 _UpgradeReport_Files/
 
 **/.idea/
-**/build
-**/coverage
-**/node_modules/
 
 *.suo
 *.user
@@ -15,18 +12,6 @@ _UpgradeReport_Files/
 *.sln.DotSettings
 
 .DS_Store
-.env.development.local
-.env.local
-.env.production.local
-.env.test.local
-.pnp
-.pnp.js
 
 appsettings*.json
-project.lock.json
-npm-debug.log*
 riderModule.iml
-yarn-debug.log*
-yarn-error.log*
-
-
