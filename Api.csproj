@@ -35,7 +35,6 @@
         <Folder Include="frontend\src\Helpers\"/>
         <Folder Include="frontend\src\Models\"/>
         <Folder Include="frontend\src\Pages\"/>
-        <Folder Include="frontend\src\Routes\"/>
         <Folder Include="frontend\src\Services\"/>
         <Folder Include="Migrations\"/>
     </ItemGroup>
