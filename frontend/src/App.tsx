@@ -1,6 +1,7 @@
 import {ChangeEvent, SyntheticEvent, useState} from "react";
 import "./App.css";
 import CardList from "./Components/CardList/CardList";
+import Hero from "./Components/Hero/Hero";
 import ListPortfolio from "./Components/Portfolio/ListPortfolio/ListPortfolio";
 import Navbar from "./Components/Navbar/Navbar";
 import Search from "./Components/Search/Search";
@@ -13,8 +14,6 @@ function App() {
     const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
     const [serverError, setServerError] = useState<string | null>(null);
     const [portfolioValues, setPortfolioValues] = useState<string[]>([]);
-    
-
     const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value);
     }
@@ -49,6 +48,7 @@ function App() {
     return (
         <div className="App">
             <Navbar/>
+            <Hero/>
 
             <Search
                 onSearchSubmit={onSearchSubmit}
